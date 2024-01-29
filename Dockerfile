@@ -6,10 +6,8 @@ COPY . .
 RUN CGO_ENABLED=0 go build -o service cmd/main.go
 
 
-FROM debian:bookworm
-
-WORKDIR /srv
+FROM scratch
 
 COPY --from=build /code/service ./service
 
-CMD ["/srv/service"]
+CMD ["/service"]
