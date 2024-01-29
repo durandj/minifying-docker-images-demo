@@ -1,8 +1,15 @@
-FROM golang:1.21
+FROM golang:1.21 AS build
 
 WORKDIR /code
 
 COPY . .
 RUN CGO_ENABLED=0 go build -o service cmd/main.go
 
-CMD ["/code/service"]
+
+FROM debian:bookworm
+
+WORKDIR /srv
+
+COPY --from=build /code/service ./service
+
+CMD ["/srv/service"]
