@@ -6,8 +6,10 @@ COPY . .
 RUN CGO_ENABLED=0 go build -o service cmd/main.go
 
 
-FROM scratch
+FROM gcr.io/distroless/static-debian11:nonroot
 
-COPY --from=build /code/service ./service
+WORKDIR /srv
 
-CMD ["/service"]
+COPY --from=build /code/service /srv/service
+
+CMD ["/srv/service"]
