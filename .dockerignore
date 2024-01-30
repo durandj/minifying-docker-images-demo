@@ -1,0 +1,9 @@
+/.git
+/.gitignore
+/Makefile
+
+.editorconfig
+.tool-versions
+Dockerfile
+
+*.md
