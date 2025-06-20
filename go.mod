@@ -3,7 +3,7 @@ module github.com/durandj/minifying-docker-images-demo
 go 1.21.6
 
 require (
-	github.com/go-chi/chi/v5 v5.0.11
+	github.com/go-chi/chi/v5 v5.2.2
 	github.com/spf13/cobra v1.8.0
 )
 
